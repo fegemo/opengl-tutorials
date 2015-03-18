@@ -1,0 +1,52 @@
+// from materialize src
+@import 'color';
+
+// global mixins, classes
+@import 'global';
+
+// css components
+@import 'definition-list';
+
+// templates
+@import 'document-list';
+@import 'document';
+@import 'comments';
+
+// general page configuration
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#main {
+  height: 100%;
+}
+
+#main-header > nav {
+  background-image: url(img/game.jpg);
+  -webkit-animation: rollBackground 5s linear 0;
+  -moz-animation: rollBackground 5s linear 0;
+  -o-animation: rollBackground 5s linear 0;
+  animation: rollBackground 5s linear 0;
+}
+
+@-webkit-keyframes rollBackground {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 100px; }
+}
+@-moz-keyframes rollBackground {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 100px; }
+}
+@-o-keyframes rollBackground {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 100px; }
+}
+@keyframes rollBackground {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 100px; }
+}

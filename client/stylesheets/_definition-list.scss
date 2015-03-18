@@ -1,0 +1,13 @@
+
+dl {
+  display: table;
+}
+
+dt, dd {
+  display: table-cell;
+}
+
+dt {
+  text-overflow: ellipsis;
+  font-weight: bold;
+}

@@ -1,0 +1,100 @@
+$comment-bubble-color: color("brown", "lighten-4");
+$comment-bubble-min-height: 3em;
+
+#comments-list {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// overriding a hovering effect from the sideNav of materialize
+ul.side-nav li:hover, ul.side-nav li.active {
+  background-color: inherit;
+}
+
+li.comment {
+  margin: .8em .5em;
+  padding: 0 !important;
+  clear: both;
+  @extend .clearfix;
+}
+
+.comment-bubble {
+  position: relative;
+  float: left;
+  width: 75%;
+  min-height: $comment-bubble-min-height;
+  padding: 4px 5px;
+  margin-left: 8px;
+  border-radius: 0 7px 7px;
+  background-color: $comment-bubble-color;
+
+  &:before {
+    position: absolute;
+    content: "";
+    border-color: transparent $comment-bubble-color transparent transparent;
+    border-style: solid;
+    border-width: 0 10px 8px;
+    top: 0;
+    left: -20px;
+  }
+}
+
+.comment-avatar {
+  float: left;
+  width: $comment-bubble-min-height;
+  height: $comment-bubble-min-height;
+  text-align: center;
+  border-radius: 50%;
+  background: silver;
+  line-height: $comment-bubble-min-height;
+}
+
+
+// every even comment appears right-aligned
+li.comment:nth-of-type(2n) {
+  & > .comment-avatar {
+    float: right;
+  }
+
+  & > .comment-bubble {
+    float: right;
+    border-radius: 7px 0 7px 7px;
+    margin-left: 0;
+    margin-right: 8px;
+
+    &:before {
+      border-color: transparent transparent transparent $comment-bubble-color;
+      border-width: 0 10px 8px;
+      left: inherit;
+      right: -20px;
+    }
+  }
+}
+
+
+
+.comment-list-title {
+  background-color: color("brown", "lighten-2") !important;
+  padding: 5px 15px !important;
+
+  & > h5 {
+    margin-top: 0;
+  }
+}
+
+.comment-list-document-author {
+  color: color("brown", "lighten-5");
+}
+
+.comment-text {
+  word-break: break-all;
+}
+
+.comment-date {
+  color: gray;
+  font-size: .75em;
+}
+
+#new-comment-submit {
+  width: 100%;
+}

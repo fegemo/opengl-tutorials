@@ -1,0 +1,14 @@
+#documents-container {
+  position: relative;
+  height: 100%;
+  background-color: silver;
+}
+
+
+
+#filters-container {
+  position: absolute;
+  right: 5em;
+  top: 5em;
+  z-index: 101;
+}

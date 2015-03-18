@@ -1,0 +1,119 @@
+$avatar-width: 60px;
+$avatar-active-scaling: 1.667;
+$avatar-filtered-out-scaling: .6;
+$avatar-active-width: $avatar-width * $avatar-active-scaling;
+
+.document {
+  position: absolute;
+  transition-property: opacity, box-shadow;
+  transition-duration: .5s;
+  transition-timing-function: ease-out;
+  z-index: 20;
+}
+
+.document-avatar {
+  @extend z-depth-1;
+  width: $avatar-width;
+  height: $avatar-width;
+  border-radius: 50%;
+  filter: blur(5px);
+  font-size: 2rem;
+  font-family: cursive;
+  line-height: $avatar-width;
+  text-align: center;
+}
+
+.document-details {
+  position: absolute;
+  left: $avatar-width * 0.783333333;
+  top: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: 0 5px 5px 0;
+  line-height: 1em;
+  transition-property: width, opacity, height;
+  transition-duration: .4s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  & > * {
+    visibility: hidden;
+  }
+}
+
+
+.document.filtered-out {
+  z-index: 10;
+  opacity: .4;
+  .document-avatar {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.12);
+    transform: scale($avatar-filtered-out-scaling);
+    filter: blur(5px);
+  }
+}
+
+.document.active {
+  z-index: 30;
+  opacity: 1;
+  .document-avatar {
+    //@extend z-depth-5;
+    box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+    filter: none;
+    transform: scale($avatar-active-scaling);
+  }
+  .document-details {
+    font-size: 1rem;
+    opacity: 1;
+    width: 205px;
+    height: $avatar-width * 1.183333333;
+    padding-left: 35px;
+
+    & > * {
+      visibility: visible;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+}
+
+
+.person-name {
+  font-size: 1.2rem;
+  margin: .5em 0;
+  line-height: 1.2em;
+}
+
+
+.document-stats {
+  i {
+    @extend .purple-text;
+    @extend .text-lighten-2;
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-radius: 50%;
+    padding: .2em;
+
+    &:hover {
+      @extend .purple;
+      @extend .lighten-2;
+      color: white !important;
+    }
+  }
+
+  dt {
+    padding-right: .3em;
+  }
+
+  dd:not(:last-child) {
+    padding-right: .5em;
+  }
+}
+
+.like-link,
+.download-link {
+  cursor: pointer;
+}

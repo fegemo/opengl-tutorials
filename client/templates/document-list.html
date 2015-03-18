@@ -1,0 +1,25 @@
+<template name="documentList">
+  {{> comments activeDocument}}
+  <div id="documents-container">
+    <aside id="filters-container">
+      <form action="#">
+        <p>
+          <input type="checkbox" id="filter-windows" value="windows" {{filterChecked windows}} />
+          <label for="filter-windows">Windows</label>
+        </p>
+        <p>
+          <input type="checkbox" id="filter-linux" value="linux" {{filterChecked linux}}/>
+          <label for="filter-linux">Linux</label>
+        </p>
+        <p>
+          <input type="checkbox" id="filter-osx" value="mac" {{filterChecked mac}} />
+          <label for="filter-osx">OSX</label>
+        </p>
+      </form>
+    </aside>
+    {{#each documents}}
+      {{> document}}
+    {{/each}}
+  </div>
+</template>
+
