@@ -3,7 +3,7 @@
  */
 
 // configures moment to output portuguese
-moment.locale('pt-BR');
+moment.locale('pt-br');
 
 
 Template.registerHelper('lowerCase', function(s) {
@@ -18,3 +18,7 @@ Template.registerHelper('initials', function(s) {
 Template.registerHelper('humanTime', function(time) {
   return moment(time).fromNow();
 });
+
+//Template.registerHelper('sortBy', function(array, fieldName) {
+//  return _.sortBy(array, fieldName);
+//});

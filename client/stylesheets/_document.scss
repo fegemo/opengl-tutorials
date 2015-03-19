@@ -16,7 +16,7 @@ $avatar-active-width: $avatar-width * $avatar-active-scaling;
   width: $avatar-width;
   height: $avatar-width;
   border-radius: 50%;
-  filter: blur(5px);
+  //filter: blur(5px);
   font-size: 2rem;
   font-family: cursive;
   line-height: $avatar-width;
@@ -51,7 +51,7 @@ $avatar-active-width: $avatar-width * $avatar-active-scaling;
   .document-avatar {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.12);
     transform: scale($avatar-filtered-out-scaling);
-    filter: blur(5px);
+    //filter: blur(5px);
   }
 }
 

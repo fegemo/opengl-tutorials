@@ -68,7 +68,9 @@ Template.document.created = function() {
 Template.document.rendered = function() {
   var mainEl = document.getElementById('main'),
       doc = this.find('.document'),
-      canvasHeight = mainEl.offsetHeight,
+      winHeight = $(window).height(),
+      navHeight = $('#main-header').outerHeight(true),
+      canvasHeight = winHeight - navHeight,
       canvasWidth = mainEl.offsetWidth,
       avatarDimension = { width: 60, height: 60 },
       position = {
@@ -79,7 +81,7 @@ Template.document.rendered = function() {
   doc.style.transform = 'translate3d(' + position.x + 'px, ' + position.y + 'px, 0)';
 
   // motion tweening
-  Template.instance().behave = new Behave(doc, position, avatarDimension, canvasWidth, 18000 + Math.random()*28000);
+  Template.instance().behave = new Behave(doc, position, avatarDimension, canvasWidth, canvasWidth * 51.28 + Math.random()*(canvasWidth*51.28));
 
   this.$('.comment-link').sideNav({
     edge: 'left',

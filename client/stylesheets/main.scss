@@ -28,10 +28,10 @@ body {
 
 #main-header > nav {
   background-image: url(img/game.jpg);
-  -webkit-animation: rollBackground 5s linear 0;
-  -moz-animation: rollBackground 5s linear 0;
-  -o-animation: rollBackground 5s linear 0;
-  animation: rollBackground 5s linear 0;
+  -webkit-animation: rollBackground 5s ease-out 0 1 normal forwards;
+  -moz-animation: rollBackground 5s ease-out 0 1 normal forwards;
+  -o-animation: rollBackground 5s ease-out 0 1 normal forwards;
+  animation: rollBackground 5s ease-out 0 1 normal forwards;
 }
 
 @-webkit-keyframes rollBackground {

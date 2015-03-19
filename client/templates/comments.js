@@ -1,7 +1,11 @@
 /**
  * Created by fegemo on 3/18/15.
  */
-
+Template.comments.helpers({
+  comments: function() {
+    return _.sortBy(this.comments, function(c) { return -c.datetime; });
+  }
+});
 Template.comments.events({
   'submit #new-comment-form': function(e, template) {
     var activeDocument = Session.get('activeDocument'),
@@ -13,16 +17,19 @@ Template.comments.events({
       return false;
     }
 
-    Documents.update(activeDocument._id, {
+    Documents.update(activeDocument, {
       $push: { comments: {
         author: $author.val(),
         text: $text.val(),
         datetime: new Date()
       }}
+    }, function(error, affectedRecords) {
+      if (!error) {
+        $author.val('');
+        $text.val('');
+        console.log('affectedRecords: ', affectedRecords);
+      }
     });
-
-    $author.val('');
-    $text.val('');
 
     e.preventDefault();
   }

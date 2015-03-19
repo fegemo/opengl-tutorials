@@ -34,8 +34,6 @@ Template.documentList.rendered = function() {
 
   //TODO: Need to know what is the meteor way to do this
   Blaze.renderWithData(Template.comments, function() {
-    var docData = Documents.findOne({_id: Session.get('activeDocument')});
-    //return Session.get('activeDocument');
-    return docData;
+    return Documents.findOne({_id: Session.get('activeDocument')});
   }, Template.instance().firstNode.parentElement, Template.instance().firstNode);
 };

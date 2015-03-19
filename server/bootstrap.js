@@ -2,7 +2,7 @@
  * Created by fegemo on 3/11/15.
  */
 Meteor.startup(function () {
-  Documents.remove({});
+  //Documents.remove({});
   if (Documents.find().count() === 0) {
     var docs = [
       {
@@ -15,11 +15,7 @@ Meteor.startup(function () {
           name: 'Arley Ribeiro',
           date: '2014/02'
         },
-        comments: [{
-          author: 'Flavio Roberto dos Santos Coutinho',
-          text: 'llalalaalalaallaaalallalallaalalalaallalalaalalala',
-          datetime: new Date()
-        }]
+        comments: []
       },
       {
         file: 'Eduardo Silva - Code Blocks.pdf',
