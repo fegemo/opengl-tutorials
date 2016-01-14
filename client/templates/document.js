@@ -87,5 +87,4 @@ Template.document.rendered = function() {
     edge: 'left',
     menuWidth: 300
   });
-
 };

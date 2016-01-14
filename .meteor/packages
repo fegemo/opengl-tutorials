@@ -6,13 +6,25 @@
 
 autopublish
 insecure
-meteor-platform
 
 materialize:materialize
 grigio:babel
 iron:router
 jquery
-fourseven:scss
 reactive-var
 momentjs:moment
 rzymek:moment-locale-pt-br
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+fourseven:scss@3.4.1
