@@ -27,6 +27,8 @@ Template.comments.events({
       if (!error) {
         $author.val('');
         $text.val('');
+        $author.blur();
+        $text.blur();
         console.log('affectedRecords: ', affectedRecords);
       }
     });
@@ -34,3 +36,7 @@ Template.comments.events({
     e.preventDefault();
   }
 });
+
+Template.comments.rendered = function() {
+  this.$('.collapsible').collapsible();
+}

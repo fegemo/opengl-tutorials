@@ -52,12 +52,6 @@ Template.document.events({
           .removeClass('mdi-action-favorite');
     }
   }
-  ,
-  'click .comment-link > div': function(e, template) {
-    //window.alert('aew');
-    //debugger;
-    //Session.set('activeDocument', this);
-  }
 });
 
 Template.document.created = function() {

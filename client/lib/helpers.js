@@ -17,6 +17,7 @@ Template.registerHelper('initials', function(s) {
 
 Template.registerHelper('humanTime', function(time) {
   return moment(time).fromNow();
+  return time;
 });
 
 //Template.registerHelper('sortBy', function(array, fieldName) {

@@ -7,6 +7,9 @@
 // css components
 @import 'definition-list';
 
+// fonts
+@import 'material-icons';
+
 // templates
 @import 'document-list';
 @import 'document';
@@ -24,29 +27,4 @@ body {
 
 #main {
   height: 100%;
-}
-
-#main-header > nav {
-  background-image: url(img/game.jpg);
-  -webkit-animation: rollBackground 5s ease-out 0 1 normal forwards;
-  -moz-animation: rollBackground 5s ease-out 0 1 normal forwards;
-  -o-animation: rollBackground 5s ease-out 0 1 normal forwards;
-  animation: rollBackground 5s ease-out 0 1 normal forwards;
-}
-
-@-webkit-keyframes rollBackground {
-  0% { background-position-y: 0; }
-  100% { background-position-y: 100px; }
-}
-@-moz-keyframes rollBackground {
-  0% { background-position-y: 0; }
-  100% { background-position-y: 100px; }
-}
-@-o-keyframes rollBackground {
-  0% { background-position-y: 0; }
-  100% { background-position-y: 100px; }
-}
-@keyframes rollBackground {
-  0% { background-position-y: 0; }
-  100% { background-position-y: 100px; }
 }

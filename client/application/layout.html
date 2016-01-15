@@ -1,7 +1,16 @@
 <template name="layout">
   <header id="main-header">
-    <nav class="brown" role="navigation">
-      <a class="brand-logo" href="/">Tutoriais OpenGL</a>
+    <nav role="navigation" class="indigo">
+      <div class="nav-wapper">
+        <a class="brand-logo" href="/">Tutoriais OpenGL</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li>
+            {{> atNavButton}}
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
   <div id="main">

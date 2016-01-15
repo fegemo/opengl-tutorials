@@ -1,5 +1,6 @@
 <template name="documentList">
   {{> comments activeDocument}}
+
   <div id="documents-container">
     <aside id="filters-container">
       <form action="#">
@@ -17,9 +18,9 @@
         </p>
       </form>
     </aside>
+
     {{#each documents}}
       {{> document}}
     {{/each}}
   </div>
 </template>
-

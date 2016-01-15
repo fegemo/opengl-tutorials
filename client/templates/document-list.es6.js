@@ -16,9 +16,7 @@ Template.documentList.helpers({
     };
   },
   activeDocument: function() {
-    //return Tracker.autorun(function() {
-      return Session.get('activeDocument');
-    //});
+    return Session.get('activeDocument');
   }
 });
 

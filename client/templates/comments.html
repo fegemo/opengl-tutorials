@@ -3,22 +3,31 @@
     <li class="comment-list-title">
       <h5>Documento de <span class="comment-list-document-author">{{person.name}}</span></h5>
     </li>
+    <li>
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <div class="collapsible-header waves-effect "><i class="material-icons">forum</i> Novo comentário</div>
+          <div class="collapsible-body">
+
+            <form method="POST" action="#" id="new-comment-form">
+              <div class="input-field">
+                <input id="new-comment-author" name="new-comment-author" type="text" class="validate" required>
+                <label for="new-comment-author">Seu nome</label>
+              </div>
+              <div class="input-field">
+                <textarea id="new-comment-text" name="new-comment-text" class="materialize-textarea validate" required></textarea>
+                <label for="new-comment-text">Comentário</label>
+              </div>
+              <button id="new-comment-submit" type="submit" class="waves-effect waves-light btn"><i class="material-icons right">comment</i> Enviar </button>
+
+            </form>
+          </div>
+        </li>
+      </ul>
+    </li>
     {{#each comments}}
       {{> comment}}
     {{/each}}
-    <li class="new-comment">
-      <form method="POST" action="#" id="new-comment-form">
-        <div class="input-field">
-          <input id="new-comment-author" name="new-comment-author" type="text" class="validate" required>
-          <label for="new-comment-author">Seu nome</label>
-        </div>
-        <div class="input-field">
-          <textarea id="new-comment-text" name="new-comment-text" class="materialize-textarea validate" required></textarea>
-          <label for="new-comment-text">Comentário</label>
-        </div>
-        <button id="new-comment-submit" type="submit" class="waves-effect waves-light btn brown"><i class="mdi-communication-message right"></i>Enviar</button>
-      </form>
-    </li>
   </ul>
 </template>
 
