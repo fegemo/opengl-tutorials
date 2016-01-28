@@ -1,0 +1,147 @@
+
+<template name="newDocumentModal">
+  <!-- Modal Trigger -->
+  <button id="new-document-button" class="btn-floating btn-large red modal-trigger waves-effect waves-light" data-target="new-document-modal">
+    <i class="material-icons">note_add</i>
+  </button>
+
+  <!-- Modal Structure -->
+  <div id="new-document-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Enviar Tutorial</h4>
+      <p>Envie aqui o seu trabalho contendo o tutorial</p>
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <input id="new-document-user-id" type="hidden" value="{{userId}}">
+            <div class="input-field col s4">
+              <!-- <i class="material-icons prefix">account_circle</i> -->
+              <input id="new-document-person-name" type="text" class="validate" {{personNameAttrs}} required>
+              <label for="new-document-person-name" class="{{personNameLabelClass}}">Nome</label>
+            </div>
+            <div class="input-field col s5">
+              <!-- <i class="material-icons prefix">email</i> -->
+              <input id="new-document-person-email" type="text" class="validate" {{personEmailAttrs}} required>
+              <label for="new-document-person-email" class="{{personEmailLabelClass}}">Email</label>
+            </div>
+            <div class="col s3">
+              <input type="checkbox" id="new-document-other-user">
+              <label for="new-document-other-user">Outro usuário</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s5">
+              <select id="new-document-year">
+                <option value="" disabled selected>Ano</option>
+                {{#each yearsAvailable}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+              <label for="new-document-year">Quando cursou CG?</label>
+            </div>
+            <div class="input-field col s3">
+              <select id="new-document-semester">
+                <option value="" disabled selected>Semestre</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <select multiple id="new-document-os">
+                <option value="" disabled selected>Em quais sistemas foi testado</option>
+                <option value="Windows">Windows</option>
+                <option value="Linux">Linux</option>
+                <option value="OSX">OSX</option>
+              </select>
+              <label>Sistema operacional</label>
+            </div>
+
+            <div class="input-field col s6">
+              <select multiple id="new-document-env">
+                <option value="" disabled selected>Em quais ambientes foi testado</option>
+                <option value="CodeBlocks">CodeBlocks</option>
+                <option value="Visual Studio">Visual Studio</option>
+                <option value="DevC++">DevC++</option>
+                <option value="XCode">XCode</option>
+                <option value="Linha de Comando">Linha de comando</option>
+              </select>
+              <label>Ambiente de desenvolvimento</label>
+            </div>
+          </div>
+
+          <!-- start tabs of the content being sent (url, file, vdieo etc.) -->
+          <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s3 active"><a href="#tab-video-url">Vídeo (URL)</a></li>
+                <li class="tab col s3 disabled"><a href="#tab-video-upload">Vídeo (upload)</a></li>
+                <li class="tab col s3"><a href="#tab-file-url">Arquivo (URL)</a></li>
+                <li class="tab col s3 disabled"><a href="#tab-file-upload">Arquivo (upload)</a></li>
+              </ul>
+            </div>
+            <!-- start online video tab -->
+            <div id="tab-video-url" class="col s12">
+              <div class="row">
+                <div class="input-field col s8">
+                  <i class="material-icons prefix">web</i>
+                  <input id="video-url" type="text">
+                  <label for="video-url">URL do vídeo</label>
+                </div>
+                <div class="col s4">Status</div>
+              </div>
+            </div>
+            <div id="tab-video-upload" class="col s12">
+              <div class="row">
+                <div class="file-field input-field col s12">
+                  <div class="btn">
+                    <span>Arquivo</span>
+                    <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end online video -->
+            <!-- start upload an archive tab -->
+            <div id="tab-file-url" class="col s12">
+              <div class="row">
+                <div class="input-field col s8">
+                  <input id="video-url" type="text">
+                  <label for="video-url">URL do arquivo</label>
+                </div>
+                <div class="col s4">Status</div>
+              </div>
+            </div>
+            <div id="tab-file-upload" class="col s12">
+              <div class="row">
+                <div class="file-field input-field col s12">
+                  <div class="btn">
+                    <span>Arquivo</span>
+                    <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end upload tab content -->
+          </div>
+          <!-- end tabs -->
+
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" id="new-document-submit-button" class="modal-action waves-effect waves-light indigo btn">Enviar</a>
+      <a href="#!" id="new-document-cancel-button" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+  </div>
+</template>

@@ -1,14 +1,18 @@
 <template name="document">
   <article class="document {{#if active}}active{{/if}} {{#if filteredOut}}filtered-out{{/if}}">
     <header class="document-header">
-      <div class="document-avatar btn-floating indigo lighten-2">
-        {{initials person.name}}
+      <div class="document-avatar btn-floating">
+        {{#if person.userId}}
+          {{> avatar userId=person.userId customImageClass="document-avatar-image"}}
+        {{else}}
+          {{initials person.name}}
+        {{/if}}
       </div>
     </header>
     <section class="document-details">
       <h2 class="person-name">{{person.name}}</h2>
       <dl class="document-stats">
-        <dt class="download-link"><a href="/dl/{{lowerCase os}}/{{file}}"><i class="mdi-file-file-download tiny"></i></a></dt><dd class="download-link"><a href="/dl/{{lowerCase os}}//{{file}}">{{downloads}}</a></dd>
+        <dt class="download-link"><a href="/dl/{{person.date}}/{{file}}"><i class="mdi-file-file-download tiny"></i></a></dt><dd class="download-link"><a href="/dl/{{person.date}}//{{file}}">{{downloads}}</a></dd>
         <dt class="like-link"><i class="mdi-action-favorite-outline tiny"></i></dt><dd class="like-link">{{likes}}</dd>
         <dt class="comment-link" data-activates="comments-list"><div><i class="mdi-communication-comment tiny"></i></div></dt><dd class="comment-link" data-activates="comments-list"><div>{{comments.length}}</div></dd>
       </dl>

@@ -3,7 +3,7 @@
  */
 
 // -- template: documentList
-Session.setDefault('checkedFilters', { windows: false, linux: false, mac: false});
+Session.setDefault('checkedFilters', { windows: false, linux: false, osx: false});
 Session.set('activeDocument', {});
 
 Template.documentList.helpers({

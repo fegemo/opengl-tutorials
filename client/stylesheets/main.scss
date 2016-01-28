@@ -11,9 +11,12 @@
 @import 'material-icons';
 
 // templates
+@import 'avatar';
+@import 'layout-header';
 @import 'document-list';
 @import 'document';
 @import 'comments';
+@import 'new-document';
 
 // general page configuration
 html, body {
@@ -23,8 +26,4 @@ html, body {
 body {
   margin: 0;
   overflow: hidden;
-}
-
-#main {
-  height: 100%;
 }

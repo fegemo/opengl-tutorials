@@ -8,7 +8,7 @@ Template.document.helpers({
         noneSelected = !Object.values(filters).reduce(function(value, current) {
           return current || value;
       }, false),
-      shouldDisplay = noneSelected || filters[this.os.toLowerCase()];
+      shouldDisplay = noneSelected || _.some(this.os || [], (os) => filters[os.toLowerCase()]);
 
     return !shouldDisplay;
   }

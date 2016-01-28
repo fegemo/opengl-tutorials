@@ -1,0 +1,28 @@
+#main {
+  height: 100%;
+}
+
+$profile-image-width: 40px;
+
+.profile-image,
+.profile-initials {
+  max-height: $profile-image-width;
+  max-width: $profile-image-width;
+  vertical-align: middle;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0px;
+  box-sizing: content-box;
+  mix-blend-mode: screen;
+
+  top: 50%;
+  left: 50%;
+  margin-top: -$profile-image-width/2;
+  margin-left: -$profile-image-width/2;
+}
+
+.profile-initials {
+  text-align: center;
+  line-height: $profile-image-width;
+  border-radius: 50%;
+  color: black;
+}

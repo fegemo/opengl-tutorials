@@ -8,7 +8,6 @@ autopublish
 insecure
 
 jquery
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -33,3 +32,6 @@ accounts-google
 useraccounts:materialize
 useraccounts:iron-routing
 aldeed:template-extension
+jparker:gravatar
+service-configuration
+seba:minifiers-autoprefixer

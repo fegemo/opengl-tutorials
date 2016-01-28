@@ -1,7 +1,8 @@
-$avatar-width: 60px;
 $avatar-active-scaling: 1.667;
 $avatar-filtered-out-scaling: .6;
 $avatar-active-width: $avatar-width * $avatar-active-scaling;
+$avatar-color: color("indigo", "lighten-2");
+$avatar-color-active: color("indigo", "base");
 
 .document {
   position: absolute;
@@ -18,9 +19,14 @@ $avatar-active-width: $avatar-width * $avatar-active-scaling;
   border-radius: 50%;
   //filter: blur(5px);
   font-size: 2rem;
-  font-family: cursive;
+  font-family: Roboto;
   line-height: $avatar-width;
   text-align: center;
+  background-color: $avatar-color;
+
+  &:hover {
+    background-color: $avatar-color;
+  }
 }
 
 .document-details {
@@ -62,6 +68,7 @@ $avatar-active-width: $avatar-width * $avatar-active-scaling;
     //@extend z-depth-5;
     box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
     filter: none;
+    background-color: $avatar-color-active;
     transform: scale($avatar-active-scaling);
   }
   .document-details {
@@ -78,6 +85,15 @@ $avatar-active-width: $avatar-width * $avatar-active-scaling;
     a {
       color: inherit;
     }
+  }
+}
+
+.document-avatar-image {
+  @extend .document-avatar;
+
+  .document.active &,
+  .document.filtered-out & {
+    transform: none;
   }
 }
 

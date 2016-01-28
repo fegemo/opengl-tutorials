@@ -1,14 +1,25 @@
 /**
- * Created by fegemo on 3/11/15.
- */
+* Created by fegemo on 3/11/15.
+*/
 Meteor.startup(function () {
   //Documents.remove({});
   if (Documents.find().count() === 0) {
+    ServiceConfiguration.configurations.upsert(
+      { service: 'google' },
+      {
+        $set: {
+          clientId: '33433841432-u76a4f84h9bbib115oi9hst68dp9p5mr.apps.googleusercontent.com',
+          loginStyle: 'popup',
+          secret: 'svjPMuSzZvcYzba55oRaDxHA'
+        }
+      }
+    );
+
     var docs = [
       {
         file: 'Arley Ribeiro - Code Blocks.docx',
-        os: 'Windows',
-        ide: 'Code Blocks',
+        os: ['Windows'],
+        env: ['Code Blocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -19,8 +30,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Eduardo Silva - Code Blocks.pdf',
-        os: 'Windows',
-        ide: 'Code Blocks ',
+        os: ['Windows'],
+        env: ['Code Blocks '],
         likes: 0,
         downloads: 0,
         person: {
@@ -31,8 +42,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Lauro Santos - Code Blocks.pdf',
-        os: 'Windows',
-        ide: 'Code Blocks',
+        os: ['Windows'],
+        env: ['Code Blocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -43,8 +54,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Raissa Dutra - Falcon Cpp.docx',
-        os: 'Windows',
-        ide: 'Falcon C++',
+        os: ['Windows'],
+        env: ['Falcon C++'],
         likes: 0,
         downloads: 0,
         person: {
@@ -55,8 +66,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Samuel Cury - Code Blocks.pdf',
-        os: 'Windows',
-        ide: 'Code Blocks',
+        os: ['Windows'],
+        env: ['Code Blocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -67,8 +78,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Thaís Rocha - Code Blocks.pdf',
-        os: 'Windows',
-        ide: 'Code Blocks',
+        os: ['Windows'],
+        env: ['Code Blocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -79,8 +90,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Luis Carlos Filho - XCode.pdf',
-        os: 'Mac',
-        ide: 'XCode',
+        os: ['Mac'],
+        env: ['XCode'],
         likes: 0,
         downloads: 0,
         person: {
@@ -91,8 +102,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Marco Souza - Debian.markdown',
-        os: 'Linux',
-        ide: 'Linha de comando',
+        os: ['Linux'],
+        env: ['Linha de comando'],
         likes: 0,
         downloads: 0,
         person: {
@@ -103,8 +114,8 @@ Meteor.startup(function () {
       },
       {
         file: 'Vitor Silveira - Code Blocks.pdf',
-        os: 'Linux',
-        ide: 'Code Blocks',
+        os: ['Linux'],
+        env: ['Code Blocks'],
         likes: 0,
         downloads: 0,
         person: {
