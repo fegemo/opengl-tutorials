@@ -1,8 +1,10 @@
+$logo-height: 60px;
+$profile-image-width: 40px;
+
+
 #main {
   height: 100%;
 }
-
-$profile-image-width: 40px;
 
 .profile-image,
 .profile-initials {
@@ -25,4 +27,26 @@ $profile-image-width: 40px;
   line-height: $profile-image-width;
   border-radius: 50%;
   color: black;
+}
+
+#logo-svg {
+  max-height: $logo-height;
+}
+
+#main-header .brand-logo {
+  height: $logo-height;
+}
+
+.svg-container {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
 }
