@@ -1,0 +1,14 @@
+
+.input-field .postfix-inside {
+  position: absolute;
+  right: 0.5em;
+  bottom: 35%;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.tooltipped {
+  cursor: help;
+}

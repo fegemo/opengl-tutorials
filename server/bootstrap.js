@@ -90,7 +90,7 @@ Meteor.startup(function () {
       },
       {
         file: 'Luis Carlos Filho - XCode.pdf',
-        os: ['Mac'],
+        os: ['OSX'],
         env: ['XCode'],
         likes: 0,
         downloads: 0,

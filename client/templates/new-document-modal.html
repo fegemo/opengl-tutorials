@@ -10,30 +10,31 @@
     <div class="modal-content">
       <h4>Enviar Tutorial</h4>
       <p>Envie aqui o seu trabalho contendo o tutorial</p>
-
       <div class="row">
-        <form class="col s12">
+        <form class="col s12" id="new-document-form">
           <div class="row">
             <input id="new-document-user-id" type="hidden" value="{{userId}}">
-            <div class="input-field col s4">
-              <!-- <i class="material-icons prefix">account_circle</i> -->
-              <input id="new-document-person-name" type="text" class="validate" {{personNameAttrs}} required>
+            <div class="input-field col s{{personNameGridColumns}}">
+              <input id="new-document-person-name" type="text" class="validate" value="{{personName}}" disabled={{userDetailsDisabled}} required name="name" maxlength="200">
               <label for="new-document-person-name" class="{{personNameLabelClass}}">Nome</label>
+              <i class="material-icons postfix-inside tooltipped {{#unless userDetailsDisabled}}invisible{{/unless}} fade-up" data-tooltip="Para editar, marque &quot;Outro usuário&quot;" data-position="top">info_outline</i>
             </div>
-            <div class="input-field col s5">
-              <!-- <i class="material-icons prefix">email</i> -->
-              <input id="new-document-person-email" type="text" class="validate" {{personEmailAttrs}} required>
+            <div class="input-field col s{{personEmailGridColumns}}">
+              <input id="new-document-person-email" type="email" class="validate" value="{{personEmail}}" disabled={{userDetailsDisabled}} required name="email" maxlength="200">
               <label for="new-document-person-email" class="{{personEmailLabelClass}}">Email</label>
+              <i class="material-icons postfix-inside tooltipped {{#unless userDetailsDisabled}}invisible{{/unless}} fade-up" data-tooltip="Para editar, marque &quot;Outro usuário&quot;" data-position="top">info_outline</i>
             </div>
+            {{#if currentUser}}
             <div class="col s3">
-              <input type="checkbox" id="new-document-other-user">
+              <input type="checkbox" id="new-document-other-user" checked="{{otherUsersChecked}}">
               <label for="new-document-other-user">Outro usuário</label>
             </div>
+            {{/if}}
           </div>
 
           <div class="row">
             <div class="input-field col s5">
-              <select id="new-document-year">
+              <select id="new-document-year" class="validate" required name="year">
                 <option value="" disabled selected>Ano</option>
                 {{#each yearsAvailable}}
                   <option value="{{this}}">{{this}}</option>
@@ -42,7 +43,7 @@
               <label for="new-document-year">Quando cursou CG?</label>
             </div>
             <div class="input-field col s3">
-              <select id="new-document-semester">
+              <select id="new-document-semester" class="validate" required name="semester">
                 <option value="" disabled selected>Semestre</option>
                 <option value="01">1</option>
                 <option value="02">2</option>
@@ -52,8 +53,8 @@
 
           <div class="row">
             <div class="input-field col s6">
-              <select multiple id="new-document-os">
-                <option value="" disabled selected>Em quais sistemas foi testado</option>
+              <select id="new-document-os" class="validate" required name="os">
+                <option value="" disabled selected>Em que sistema foi testado</option>
                 <option value="Windows">Windows</option>
                 <option value="Linux">Linux</option>
                 <option value="OSX">OSX</option>
@@ -62,8 +63,8 @@
             </div>
 
             <div class="input-field col s6">
-              <select multiple id="new-document-env">
-                <option value="" disabled selected>Em quais ambientes foi testado</option>
+              <select id="new-document-env" class="validate" required name="env">
+                <option value="" disabled selected>Em que ambiente foi testado</option>
                 <option value="CodeBlocks">CodeBlocks</option>
                 <option value="Visual Studio">Visual Studio</option>
                 <option value="DevC++">DevC++</option>
@@ -74,25 +75,32 @@
             </div>
           </div>
 
-          <!-- start tabs of the content being sent (url, file, vdieo etc.) -->
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">web</i>
+              <input id="content-url" type="url" maxlength="200" required>
+              <label for="content-url">URL do vídeo/arquivo compactado</label>
+            </div>
+          </div>
+
+          <!--
           <div class="row">
             <div class="col s12">
-              <ul class="tabs">
-                <li class="tab col s3 active"><a href="#tab-video-url">Vídeo (URL)</a></li>
+              <ul class="tabs" id="new-document-content-tabs">
+                <li class="tab col s3"><a class="active" href="#tab-video-url">Vídeo (URL)</a></li>
                 <li class="tab col s3 disabled"><a href="#tab-video-upload">Vídeo (upload)</a></li>
                 <li class="tab col s3"><a href="#tab-file-url">Arquivo (URL)</a></li>
                 <li class="tab col s3 disabled"><a href="#tab-file-upload">Arquivo (upload)</a></li>
               </ul>
             </div>
-            <!-- start online video tab -->
+
             <div id="tab-video-url" class="col s12">
               <div class="row">
-                <div class="input-field col s8">
+                <div class="input-field col s12">
                   <i class="material-icons prefix">web</i>
-                  <input id="video-url" type="text">
+                  <input id="video-url" type="url" maxlength="200">
                   <label for="video-url">URL do vídeo</label>
                 </div>
-                <div class="col s4">Status</div>
               </div>
             </div>
             <div id="tab-video-upload" class="col s12">
@@ -108,12 +116,11 @@
                 </div>
               </div>
             </div>
-            <!-- end online video -->
-            <!-- start upload an archive tab -->
+
             <div id="tab-file-url" class="col s12">
               <div class="row">
                 <div class="input-field col s8">
-                  <input id="video-url" type="text">
+                  <input id="video-url" type="url" maxlength="200">
                   <label for="video-url">URL do arquivo</label>
                 </div>
                 <div class="col s4">Status</div>
@@ -132,15 +139,17 @@
                 </div>
               </div>
             </div>
-            <!-- end upload tab content -->
           </div>
-          <!-- end tabs -->
+          -->
 
+          <button id="new-document-submit-button" class="invisible"></button>
         </form>
       </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" id="new-document-submit-button" class="modal-action waves-effect waves-light indigo btn">Enviar</a>
+      <label for="new-document-submit-button" class="modal-action waves-effect waves-light indigo btn">
+        Enviar
+      </label>
       <a href="#!" id="new-document-cancel-button" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
     </div>
   </div>

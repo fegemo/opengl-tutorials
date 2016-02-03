@@ -5,3 +5,40 @@
   bottom: 1.5rem;
   z-index: 100;
 }
+
+#new-document-other-user + label {
+  margin-top: 1.7em;
+}
+
+// I had to put a hidden submit button inside the <form> and this label
+// on the footer of the modal to trigger submission
+// However, the label has font-size: 0.8rem, so we need to override
+label.modal-action {
+  font-size: inherit;
+}
+
+// Materialize does not style invalid <select>s
+// We need to do it ourselves
+.select-wrapper.invalid input.select-dropdown {
+  border-bottom: 1px solid #f44336;
+  box-shadow: 0 1px 0 0 #f44336;
+}
+
+.select-wrapper select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: -999;
+  opacity: 0;
+
+  &:invalid + input[type="text"].touched,
+  &.invalid + input[type="text"] {
+    border-bottom: 1px solid #f44336;
+    box-shadow: 0 1px 0 0 #f44336;
+  }
+  &:valid + input[type="text"].touched {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+  }
+}

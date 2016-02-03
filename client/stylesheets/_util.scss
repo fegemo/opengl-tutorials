@@ -1,0 +1,23 @@
+$fade-in-duration: 200ms;
+
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+
+  &.fade-up {
+    transform: translate3d(0, 0.5em, 0);
+    opacity: 0 !important;
+    transition-delay: 0ms;
+  }
+}
+
+.fade-up {
+  transition-property: transform, opacity, visibility;
+  transition-duration: $fade-in-duration, $fade-in-duration, 0ms;
+  transition-timing-function: ease-out;
+  transition-delay: 0ms, 0ms, $fade-in-duration;
+
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
