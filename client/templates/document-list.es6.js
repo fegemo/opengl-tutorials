@@ -56,11 +56,5 @@ Template.documentList.events({
 });
 
 Template.documentList.rendered = function() {
-
-  //TODO: Need to know what is the meteor way to do this
-  Blaze.renderWithData(Template.comments, function() {
-    return Documents.findOne({_id: Session.get('activeDocument')});
-  }, Template.instance().firstNode.parentElement, Template.instance().firstNode);
-
   Template.instance().dragging = [];
 };

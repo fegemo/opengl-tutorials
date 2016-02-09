@@ -19,7 +19,8 @@ Template.document.events({
     template.active.set(!template.active.get());
     if (template.active.get()) {
       template.behave.tween.pause();
-      Session.set('activeDocument', this._id);
+      // Session.set('activeDocument', this._id);
+      Session.set('activeDocument', this);
     } else {
       template.behave.tween.resume();
     }
@@ -51,6 +52,10 @@ Template.document.events({
           .addClass('mdi-action-favorite-outline')
           .removeClass('mdi-action-favorite');
     }
+  },
+  'click .comment-link': function(e, template) {
+    Session.set('activeDocument', this);
+    $('.button-collapse').sideNav('show');
   }
 });
 
@@ -76,9 +81,4 @@ Template.document.rendered = function() {
 
   // motion tweening
   Template.instance().behave = new Behave(doc, position, avatarDimension, canvasWidth, canvasWidth * 51.28 + Math.random()*(canvasWidth*51.28));
-
-  this.$('.comment-link').sideNav({
-    edge: 'left',
-    menuWidth: 300
-  });
 };
