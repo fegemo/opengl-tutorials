@@ -11,15 +11,14 @@
 
             <form method="POST" action="#" id="new-comment-form">
               <div class="input-field">
-                <input id="new-comment-author" name="new-comment-author" type="text" class="validate" required>
-                <label for="new-comment-author">Seu nome</label>
+                <input id="new-comment-author" name="new-comment-author" type="text" class="validate" value="{{userName}}" disabled={{userDetailsDisabled}} maxlength="100" required>
+                <label for="new-comment-author" class="{{#if userDetailsDisabled}}active{{/if}}">Seu nome</label>
               </div>
               <div class="input-field">
-                <textarea id="new-comment-text" name="new-comment-text" class="materialize-textarea validate" required></textarea>
+                <textarea id="new-comment-text" name="new-comment-text" class="materialize-textarea validate" length="120" maxlength="150" required></textarea>
                 <label for="new-comment-text">Comentário</label>
               </div>
               <button id="new-comment-submit" type="submit" class="waves-effect waves-light btn"><i class="material-icons right">comment</i> Enviar </button>
-
             </form>
           </div>
         </li>
@@ -34,10 +33,17 @@
 
 <template name="comment">
   <li class="comment">
-    <div class="comment-avatar"><abbr title="{{author}}">{{initials author}}</abbr></div>
+    <div class="comment-avatar tooltipped" data-tooltip="{{author}}">
+      {{#if userId}}
+        {{> avatar userId=userId}}
+      {{else}}
+        {{initials author}}
+      {{/if}}
+    </div>
+    <!-- <div class="comment-avatar"><abbr title="{{author}}">{{initials author}}</abbr></div> -->
     <div class="comment-bubble">
       <div class="comment-text">{{text}}</div>
-      <div class="comment-date"><time datetime="{{datetime}}">{{humanTime datetime}}</time></div>
+      <div class="comment-date"><time datetime="{{datetime}}" class="tooltipped" data-tooltip="{{humanTime datetime}}" data-position="top">{{humanTimeAgo datetime}}</time></div>
     </div>
   </li>
 </template>

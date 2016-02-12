@@ -5,6 +5,10 @@ $comment-bubble-min-height: 3em;
 #comments-list {
   overflow-x: hidden;
   overflow-y: auto;
+  & .button-collapse {
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 // overriding a hovering effect from the sideNav of materialize
@@ -50,6 +54,10 @@ li.comment {
   border-radius: 50%;
   background: silver;
   line-height: $comment-bubble-min-height;
+  & .avatar {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 
@@ -98,9 +106,14 @@ li.comment:nth-of-type(2n) {
   font-size: .75em;
 }
 
+#new-comment-text {
+  margin-bottom: 1.5rem;
+}
+
 #new-comment-submit {
   width: 100%;
   background-color: color($comment-color, "base") !important;
+  margin-top: 1.5em;
 }
 
 #new-comment-form {

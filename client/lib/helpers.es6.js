@@ -36,8 +36,11 @@ Template.registerHelper('avatar', (user) => {
 });
 
 Template.registerHelper('humanTime', function(time) {
+  return moment(time).format('LLL');
+});
+
+Template.registerHelper('humanTimeAgo', function(time) {
   return moment(time).fromNow();
-  return time;
 });
 
 Template.registerHelper('sortBy', function(array, field, ascOrDesc) {

@@ -116,7 +116,7 @@ Template.newDocumentModal.helpers({
   // name and email can't be edited if user is (a) logged in and (b) "other user" checkbox is unchecked
   userDetailsDisabled: () => Meteor.userId() && !Template.instance().otherUserChecked.get(),
   // name is shown if user is (a) logged in and (b) has a profile and (c) "other user" checkbox is unchecked
-  personName: () => Meteor.userId() && Meteor.user() && !Template.instance().otherUserChecked.get() ? Meteor.user().profile.name : '',
+  personName: () => Meteor.user() && !Template.instance().otherUserChecked.get() ? Meteor.user().profile.name : '',
   personNameLabelClass: () => Meteor.userId() && !Template.instance().otherUserChecked.get() ? 'active' : '',
   personNameGridColumns: () => Meteor.userId() ? '4' : '6',
   // email is shown if user is (a) logged in and (b) has a profile and (c) "other user" checkbox is unchecked
