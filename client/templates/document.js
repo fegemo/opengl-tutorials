@@ -19,7 +19,6 @@ Template.document.events({
     template.active.set(!template.active.get());
     if (template.active.get()) {
       template.behave.tween.pause();
-      // Session.set('activeDocument', this._id);
       Session.set('activeDocument', this);
     } else {
       template.behave.tween.resume();
@@ -40,8 +39,7 @@ Template.document.events({
         $inc: { likes: 1 }
       });
       template.$(e.target).closest('.document-stats').find('.like-link i').eq(0)
-          .addClass('mdi-action-favorite')
-          .removeClass('mdi-action-favorite-outline');
+          .text('favorite');
     } else {
       // removes a like
       // saves a like count to the document
@@ -49,8 +47,7 @@ Template.document.events({
         $inc: { likes: -1 }
       });
       template.$(e.target).closest('.document-stats').find('.like-link i').eq(0)
-          .addClass('mdi-action-favorite-outline')
-          .removeClass('mdi-action-favorite');
+          .text('favorite_outline');
     }
   },
   'click .comment-link': function(e, template) {

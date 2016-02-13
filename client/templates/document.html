@@ -11,10 +11,48 @@
     </header>
     <section class="document-details">
       <h2 class="person-name">{{person.name}}</h2>
+      <span class="chip">{{person.date}}</span>
+      {{#each os}}
+        <span class="chip">{{this}}</span>
+      {{/each}}
+      {{#each env}}
+        <span class="chip">{{this}}</span>
+      {{/each}}
       <dl class="document-stats">
-        <dt class="download-link"><a href="/dl/{{person.date}}/{{file}}"><i class="mdi-file-file-download tiny"></i></a></dt><dd class="download-link"><a href="/dl/{{person.date}}//{{file}}">{{downloads}}</a></dd>
-        <dt class="like-link"><i class="mdi-action-favorite-outline tiny"></i></dt><dd class="like-link">{{likes}}</dd>
-        <dt class="comment-link"><div><i class="mdi-communication-comment tiny"></i></div></dt><dd class="comment-link" data-activates="comments-list"><div>{{comments.length}}</div></dd>
+
+        <!-- Download or URL button -->
+        {{#if file}}
+          <dt class="download-link">
+            <a href="/dl/{{person.date}}/{{file}}">
+              <i class="material-icons tiny">file_download</i>
+            </a>
+          </dt>
+          <dd class="download-link"><a href="/dl/{{person.date}}//{{file}}">{{downloads}}</a></dd>
+        {{/if}}
+        {{#if content}}
+          <dt class="download-link">
+            <a href="{{content}}" target="_blank">
+              <i class="material-icons tiny">video_library</i>
+            </a>
+          </dt>
+          <dd class="download-link"><a href="{{content}}" target="_blank">{{downloads}}</a></dd>
+        {{/if}}
+
+        <!-- Like button -->
+        <dt class="like-link">
+          <i class="material-icons tiny">favorite_outline</i>
+        </dt>
+        <dd class="like-link">{{likes}}</dd>
+
+        <!-- Comment button -->
+        <dt class="comment-link">
+          <div>
+            <i class="material-icons tiny">comment</i>
+          </div>
+        </dt>
+        <dd class="comment-link" data-activates="comments-list">
+          <div>{{comments.length}}</div>
+        </dd>
       </dl>
     </section>
   </article>
