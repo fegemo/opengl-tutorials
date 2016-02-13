@@ -11,10 +11,12 @@ Template.comments.helpers({
     // The line below was working, but I had lost reactivity: when adding a
     // new comment, this helper was not invalidating/rerunning
     // return _.sortBy(this.comments, function(c) { return -c.datetime; });
+
     var doc = Documents.findOne({_id: this._id}),
       comments = [];
     if (doc) {
-      comments = _.sortBy(doc.comments, c => -c.datetime)
+      // comments = _.sortBy(doc.comments, c => -c.datetime)
+      comments = doc.comments;
     }
     return comments;
   },
@@ -47,12 +49,20 @@ Template.comments.events({
     let newComment = {
       author: author,
       text: text,
-      datetime: new Date(),
-      userId: Meteor.userId()
+      datetime: new Date()
     };
 
+    if (Meteor.userId()) {
+      newComment.userId = Meteor.userId();
+    }
+
     Documents.update(activeDocument._id, {
-      $push: { comments: newComment }
+      $push: {
+        comments: {
+          $each: [newComment],
+          $position: 0
+        }
+      }
     }, function(error, affectedRecords) {
       if (!error) {
         $text.val('').focus();

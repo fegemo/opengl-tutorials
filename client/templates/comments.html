@@ -24,9 +24,11 @@
         </li>
       </ul>
     </li>
-    {{#each comments}}
-      {{> comment}}
-    {{/each}}
+    {{#transition in="fadeInDown" out="bounceOut"}}
+      {{#each comments}}
+        {{> comment}}
+      {{/each}}
+    {{/transition}}
     <a href="#" data-activates="comments-list" class="button-collapse"></a>
   </ul>
 </template>
@@ -40,7 +42,6 @@
         {{initials author}}
       {{/if}}
     </div>
-    <!-- <div class="comment-avatar"><abbr title="{{author}}">{{initials author}}</abbr></div> -->
     <div class="comment-bubble">
       <div class="comment-text">{{text}}</div>
       <div class="comment-date"><time datetime="{{datetime}}" class="tooltipped" data-tooltip="{{humanTime datetime}}" data-position="top">{{humanTimeAgo datetime}}</time></div>

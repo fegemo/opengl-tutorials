@@ -36,3 +36,4 @@ jparker:gravatar
 service-configuration
 seba:minifiers-autoprefixer
 rzymek:moment-locale-pt-br
+webtempest:animate
