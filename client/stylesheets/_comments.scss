@@ -5,6 +5,8 @@ $comment-bubble-min-height: 3em;
 #comments-list {
   overflow-x: hidden;
   overflow-y: auto;
+  height: 100%;
+  
   & .button-collapse {
     visibility: hidden;
     pointer-events: none;

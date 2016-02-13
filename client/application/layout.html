@@ -2,10 +2,16 @@
   <header id="main-header">
     <nav role="navigation" class="indigo">
       <div class="nav-wapper">
+        <!-- Logo -->
         <a class="brand-logo svg-container" href="/">
           <object id="logo-svg" type="image/svg+xml" data="/img/tutoriais-opengl-logo.svg">Tutoriais OpenGL</object>
         </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <!-- Hamburger button to display the mobile menu -->
+        <a href="#" data-activates="mobile-menu" class="mobile-menu-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
+
+        <!-- Menu for med-large screens -->
+        <ul class="right hide-on-med-and-down">
           <li><a href="about.html">Sobre</a></li>
           {{#if currentUser}}
             <li>
@@ -14,6 +20,19 @@
           {{/if}}
           <li>
             {{> atNavButton}}
+          </li>
+        </ul>
+
+        <!-- Menu for small screens -->
+        <ul class="side-nav" id="mobile-menu">
+          <li><a href="about.html">Sobre</a></li>
+          <li class="mobile-login-item valign-wrapper">
+            {{#if currentUser}}
+              {{> avatar customImageClass="profile-image round" customTextClass="profile-initials" customClass="profile-image-container valign"}}
+            {{/if}}
+            <span class="valign mobile-login-button-container">
+              {{> atNavButton}}
+            </span>
           </li>
         </ul>
       </div>

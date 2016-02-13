@@ -6,6 +6,8 @@ Template.layout.rendered = function() {
     duration: 100,
     animTimingFunction: Vivus.EASE_OUT
   });
+
+  $('.mobile-menu-trigger[data-activates="mobile-menu"]').sideNav();
 };
 
 Template.layout.events({

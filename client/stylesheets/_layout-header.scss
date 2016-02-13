@@ -22,6 +22,31 @@ $profile-image-width: 40px;
   margin-left: -$profile-image-width/2;
 }
 
+.profile-image.round {
+  // display: inline-block;
+  border-radius: 0.5rem;
+}
+
+// On the "login/logout" line of the mobile menu...
+.mobile-login-item {
+  display: flex;
+  justify-content: space-between;
+
+  .profile-image {
+    mix-blend-mode: initial;
+  }
+
+  .mobile-login-button-container {
+    flex-grow: 1;
+  }
+
+  #at-nav-button {
+    line-height: 3rem;
+    height: 3rem;
+    margin: 0;
+  }
+}
+
 .profile-initials {
   text-align: center;
   line-height: $profile-image-width;
