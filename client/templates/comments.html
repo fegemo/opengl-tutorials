@@ -18,7 +18,10 @@
                 <textarea id="new-comment-text" name="new-comment-text" class="materialize-textarea validate" length="120" maxlength="150" required></textarea>
                 <label for="new-comment-text">Comentário</label>
               </div>
-              <button id="new-comment-submit" type="submit" class="waves-effect waves-light btn"><i class="material-icons right">comment</i> Enviar </button>
+              <button id="new-comment-submit" type="submit" class="waves-effect waves-light btn">
+                {{> loading customClass="left" size="small"}}
+                <i class="material-icons right">comment</i> Enviar
+              </button>
             </form>
           </div>
         </li>

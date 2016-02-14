@@ -30,12 +30,19 @@ Template.comments.events({
   'submit #new-comment-form': function(e, template) {
     var activeDocument = Session.get('activeDocument'),
       $form = template.$(e.target),
+      $submit = $form.find('#new-comment-submit'),
       $author = $form.find('#new-comment-author'),
       $text = $form.find('#new-comment-text'),
       author = $author.val().trim(),
       text = $text.val().trim();
 
+    // sets new state for the form (disabling submit etc.)
     e.preventDefault();
+    $submit.find('.preloader-wrapper').addClass('active');
+    $submit.attr('disabled', '');
+    $submit.addClass('disabled');
+
+    // very simple validation
     if (typeof activeDocument === 'undefined') {
       return false;
     } else if (text === '') {
@@ -46,16 +53,25 @@ Template.comments.events({
       return;
     }
 
+    // comment to be inserted
     let newComment = {
       author: author,
       text: text,
-      datetime: new Date()
+      datetime: new Date(),
+      userId: Meteor.userId(),
+
+      // generates some _id so that Blaze can differentiate between "comment" objects
+      // this was necessary so that the animation of inserted comment would
+      // properly identify the newly added item (w/o this it was considering the
+      // tail of the array as the added item, not the head one)
+      _id: Random.id(),
     };
 
-    if (Meteor.userId()) {
-      newComment.userId = Meteor.userId();
+    if (!newComment.userId) {
+      delete newComment.userId;
     }
 
+    // Inserts the new comment into the comments array of the active document
     Documents.update(activeDocument._id, {
       $push: {
         comments: {
@@ -64,12 +80,16 @@ Template.comments.events({
         }
       }
     }, function(error, affectedRecords) {
+      // resets the state of the form
+      $submit.find('.preloader-wrapper').removeClass('active');
+      $submit.removeAttr('disabled');
+      $submit.removeClass('disabled');
+
       if (!error) {
         $text.val('').focus();
         $text.trigger('autoresize');
       }
     });
-
   }
 });
 
@@ -81,7 +101,6 @@ Template.comments.rendered = function() {
   });
   this.$('.tooltipped').tooltip({delay: 50 });
   this.$('#new-comment-text').characterCounter();
-
 }
 
 Template.comment.rendered = function() {

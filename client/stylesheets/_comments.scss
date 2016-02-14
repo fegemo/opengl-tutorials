@@ -6,7 +6,7 @@ $comment-bubble-min-height: 3em;
   overflow-x: hidden;
   overflow-y: auto;
   height: 100%;
-  
+
   & .button-collapse {
     visibility: hidden;
     pointer-events: none;
@@ -114,8 +114,11 @@ li.comment:nth-of-type(2n) {
 
 #new-comment-submit {
   width: 100%;
-  background-color: color($comment-color, "base") !important;
   margin-top: 1.5em;
+
+  &:not(.disabled) {
+    background-color: color($comment-color, "base") !important;
+  }
 }
 
 #new-comment-form {

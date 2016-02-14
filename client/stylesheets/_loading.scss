@@ -1,0 +1,17 @@
+.preloader-wrapper:not(.active) {
+  visibility: hidden;
+  //animation:
+}
+.preloader-wrapper.active {
+  transition: visibility 1ms linear 1s;
+  visibility: visible;
+}
+
+// @keyframes display {
+//   from {
+//     display: none;
+//   }
+//   to {
+//     display: block;
+//   }
+// }
