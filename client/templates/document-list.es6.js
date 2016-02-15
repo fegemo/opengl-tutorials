@@ -3,32 +3,57 @@
  */
 
 // -- template: documentList
-Session.setDefault('checkedFilters', { windows: false, linux: false, osx: false});
+Session.setDefault('activeFilters', { semester: [], os: [], env: [] });
 Session.set('activeDocument', {});
 
 Template.documentList.helpers({
   documents: function() {
     return Documents.find({});
   },
-  filterChecked: function(type) {
-    return {
-      checked: Session.get('checkedFilters')[type]
-    };
+  filterChecked: function(type, filter) {
+    var active = Session.get('activeFilters');
+    return _.contains(active[type], filter);
   },
   activeDocument: function() {
     return Session.get('activeDocument');
+  },
+  semestersAvailable: function() {
+    var years = [],
+      currentYear = new Date().getUTCFullYear();
+    const firstYear = 2014;
+
+    do {
+      years.push(currentYear);
+      currentYear--;
+    } while (firstYear <= currentYear);
+    return years.reverse().reduce((prev, year) => prev.concat(`${year}/01`, `${year}/02`), []);
   }
 });
 
 // Template.documentList.dragging = [];
 
 Template.documentList.events({
-  'change #filters-container input': function(e) {
-    var filters = Session.get('checkedFilters');
-    filters[e.target.value] = e.target.checked;
-    Session.set('checkedFilters', filters);
+  'change .filters': function(e, template) {
+    var $select = template.$(e.target),
+      type = $select.data('filter-type'),
+      active = Session.get('activeFilters');
+
+    active[type] = $select.val() || [];
+    Session.set('activeFilters', active);
+  },
+  'click #filters-container': function(e, template) {
+    var filtersContainer = e.currentTarget,
+      actualTarget = e.target;
+    if (!filtersContainer.classList.contains('active') ||
+      (!actualTarget.classList.contains('filters-heading') && !actualTarget.classList.contains('material-iconss'))) {
+      filtersContainer.classList.add('active');
+    }
+  },
+  'click .filters-heading': function(e, template) {
+    e.stopImmediatePropagation();
+    var $filtersContainer = template.$('#filters-container');
+    $filtersContainer.toggleClass('active');
   }
-  // ,
   // 'mousedown .document, mouseup .document': function(e) {
   //   var dragging = Template.instance().dragging;
   //
@@ -58,4 +83,5 @@ Template.documentList.events({
 
 Template.documentList.rendered = function() {
   // Template.instance().dragging = [];
+  this.$('select').material_select();
 };

@@ -3,24 +3,48 @@
 
   <div id="documents-container">
     <aside id="filters-container">
-      <form action="#">
-        <p>
-          <input type="checkbox" id="filter-windows" value="windows" {{filterChecked windows}} />
-          <label for="filter-windows">Windows</label>
-        </p>
-        <p>
-          <input type="checkbox" id="filter-linux" value="linux" {{filterChecked linux}}/>
-          <label for="filter-linux">Linux</label>
-        </p>
-        <p>
-          <input type="checkbox" id="filter-osx" value="osx" {{filterChecked osx}} />
-          <label for="filter-osx">OSX</label>
-        </p>
+      <div class="filters-heading">
+        <i class="material-icons">play_arrow</i>
+      </div>
+      <form>
+        <div class="row">
+          <div class="input-field col s6">
+            <select id="filters-semester" class="filters" data-filter-type="semester" multiple>
+              <option value="" disabled>Semestres</option>
+              {{#each semestersAvailable}}
+                <option value="{{this}}" selected="{{filterChecked 'semester' this}}">{{this}}</option>
+              {{/each}}
+            </select>
+            <label>Quando cursou CG:</label>
+          </div>
+          <div class="input-field col s6">
+            <select id="filters-os" class="filters" data-filter-type="os" multiple>
+              <option value="" disabled>Sistemas</option>
+              <option value="Windows" selected="{{filterChecked 'os' 'Windows'}}">Windows</option>
+              <option value="Linux" selected="{{filterChecked 'os' 'Linux'}}">Linux</option>
+              <option value="OSX" selected="{{filterChecked 'os' 'OSX'}}">OSX</option>
+            </select>
+            <label>Sistema Operacional:</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <select id="filters-env" class="filters" data-filter-type="env" multiple>
+              <option value="" disabled>Selecione os ambientes</option>
+              <option value="CodeBlocks" selected="{{filterChecked 'env' 'CodeBlocks'}}">CodeBlocks</option>
+              <option value="Visual Studio" selected="{{filterChecked 'env' 'Visual Studio'}}">Visual Studio</option>
+              <option value="DevC++" selected="{{filterChecked 'env' 'DevC++'}}">DevC++</option>
+              <option value="XCode" selected="{{filterChecked 'env' 'XCode'}}">XCode</option>
+              <option value="Linha de comando" selected="{{filterChecked 'env' 'Linha de comando'}}">Linha de comando</option>
+            </select>
+            <label>Ambientes de desenvolvimento:</label>
+          </div>
+        </div>
       </form>
     </aside>
 
     {{#each documents}}
-      {{> document}}
+    {{> document}}
     {{/each}}
   </div>
 </template>

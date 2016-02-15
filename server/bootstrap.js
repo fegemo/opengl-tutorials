@@ -19,7 +19,7 @@ Meteor.startup(function () {
       {
         file: 'Arley Ribeiro - Code Blocks.docx',
         os: ['Windows'],
-        env: ['Code Blocks'],
+        env: ['CodeBlocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -31,7 +31,7 @@ Meteor.startup(function () {
       {
         file: 'Eduardo Silva - Code Blocks.pdf',
         os: ['Windows'],
-        env: ['Code Blocks '],
+        env: ['CodeBlocks '],
         likes: 0,
         downloads: 0,
         person: {
@@ -43,7 +43,7 @@ Meteor.startup(function () {
       {
         file: 'Lauro Santos - Code Blocks.pdf',
         os: ['Windows'],
-        env: ['Code Blocks'],
+        env: ['CodeBlocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -67,7 +67,7 @@ Meteor.startup(function () {
       {
         file: 'Samuel Cury - Code Blocks.pdf',
         os: ['Windows'],
-        env: ['Code Blocks'],
+        env: ['CodeBlocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -79,7 +79,7 @@ Meteor.startup(function () {
       {
         file: 'Thaís Rocha - Code Blocks.pdf',
         os: ['Windows'],
-        env: ['Code Blocks'],
+        env: ['CodeBlocks'],
         likes: 0,
         downloads: 0,
         person: {
@@ -115,7 +115,7 @@ Meteor.startup(function () {
       {
         file: 'Vitor Silveira - Code Blocks.pdf',
         os: ['Linux'],
-        env: ['Code Blocks'],
+        env: ['CodeBlocks'],
         likes: 0,
         downloads: 0,
         person: {

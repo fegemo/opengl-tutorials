@@ -4,11 +4,20 @@ Template.document.helpers({
     return Template.instance().active.get();
   },
   filteredOut: function() {
-    var filters = Session.get('checkedFilters'),
-        noneSelected = !Object.values(filters).reduce(function(value, current) {
-          return current || value;
-      }, false),
-      shouldDisplay = noneSelected || _.some(this.os || [], (os) => filters[os.toLowerCase()]);
+    var filters = Session.get('activeFilters') || { semester: [], os: [], env: [] },
+      noneSelected = {
+        semester: filters.semester.length === 0,
+        os: filters.os.length === 0,
+        env: filters.env.length === 0
+      },
+      matchedFilter = {
+        semester: _.contains(filters.semester, this.person.date),
+        os: _.intersection(filters.os, this.os).length > 0,
+        env: _.intersection(filters.env, this.env).length > 0
+      },
+      shouldDisplay = (noneSelected.semester || matchedFilter.semester)
+        && (noneSelected.os || matchedFilter.os)
+        && (noneSelected.env || matchedFilter.env);
 
     return !shouldDisplay;
   }
