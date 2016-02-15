@@ -34,6 +34,6 @@ useraccounts:iron-routing
 aldeed:template-extension
 jparker:gravatar
 service-configuration
-seba:minifiers-autoprefixer
 rzymek:moment-locale-pt-br
 webtempest:animate
+seba:minifiers-autoprefixer

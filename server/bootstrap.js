@@ -2,7 +2,6 @@
 * Created by fegemo on 3/11/15.
 */
 Meteor.startup(function () {
-  //Documents.remove({});
   if (Documents.find().count() === 0) {
     ServiceConfiguration.configurations.upsert(
       { service: 'google' },
