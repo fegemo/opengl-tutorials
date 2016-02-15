@@ -20,8 +20,8 @@ Meteor.startup(function () {
         file: 'Arley Ribeiro - Code Blocks.docx',
         os: ['Windows'],
         env: ['CodeBlocks'],
-        likes: 0,
-        downloads: 0,
+        likes: 3,
+        downloads: 35,
         person: {
           name: 'Arley Ribeiro',
           date: '2014/02'
@@ -33,7 +33,7 @@ Meteor.startup(function () {
         os: ['Windows'],
         env: ['CodeBlocks '],
         likes: 0,
-        downloads: 0,
+        downloads: 10,
         person: {
           name: 'Eduardo Silva',
           date: '2014/02'
@@ -44,8 +44,8 @@ Meteor.startup(function () {
         file: 'Lauro Santos - Code Blocks.pdf',
         os: ['Windows'],
         env: ['CodeBlocks'],
-        likes: 0,
-        downloads: 0,
+        likes: 1,
+        downloads: 16,
         person: {
           name: 'Lauro Santos',
           date: '2014/02'
@@ -56,8 +56,8 @@ Meteor.startup(function () {
         file: 'Raissa Dutra - Falcon Cpp.docx',
         os: ['Windows'],
         env: ['Falcon C++'],
-        likes: 0,
-        downloads: 0,
+        likes: 1,
+        downloads: 17,
         person: {
           name: 'Raíssa Dutra',
           date: '2014/02'
@@ -68,8 +68,8 @@ Meteor.startup(function () {
         file: 'Samuel Cury - Code Blocks.pdf',
         os: ['Windows'],
         env: ['CodeBlocks'],
-        likes: 0,
-        downloads: 0,
+        likes: 2,
+        downloads: 11,
         person: {
           name: 'Samuel Cury',
           date: '2014/02'
@@ -80,8 +80,8 @@ Meteor.startup(function () {
         file: 'Thaís Rocha - Code Blocks.pdf',
         os: ['Windows'],
         env: ['CodeBlocks'],
-        likes: 0,
-        downloads: 0,
+        likes: 1,
+        downloads: 55,
         person: {
           name: 'Thaís Rocha',
           date: '2014/02'
@@ -92,8 +92,8 @@ Meteor.startup(function () {
         file: 'Luis Carlos Filho - XCode.pdf',
         os: ['OSX'],
         env: ['XCode'],
-        likes: 0,
-        downloads: 0,
+        likes: 1,
+        downloads: 6,
         person: {
           name: 'Luis Carlos Filho',
           date: '2014/02'
@@ -101,11 +101,11 @@ Meteor.startup(function () {
         comments: []
       },
       {
-        file: 'Marco Souza - Debian.markdown',
+        content: 'http://mtdsousa.github.io/blog/2014/10/04/desenhando-com-opengl-plus-lglut-em-c/',
         os: ['Linux'],
         env: ['Linha de comando'],
-        likes: 0,
-        downloads: 0,
+        likes: 1,
+        downloads: 34,
         person: {
           name: 'Marco Souza',
           date: '2014/02'
@@ -116,8 +116,8 @@ Meteor.startup(function () {
         file: 'Vitor Silveira - Code Blocks.pdf',
         os: ['Linux'],
         env: ['CodeBlocks'],
-        likes: 0,
-        downloads: 0,
+        likes: 2,
+        downloads: 24,
         person: {
           name: 'Vitor Silveira',
           date: '2014/02'
