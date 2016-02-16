@@ -21,6 +21,9 @@
 @import 'comments';
 @import 'new-document';
 
+// pages
+@import 'page-specific';
+
 // general page configuration
 html, body {
   height: 100%;
