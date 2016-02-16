@@ -10,22 +10,21 @@
     <div class="modal-content">
       <h4>Enviar Tutorial</h4>
       <p>Envie aqui o seu trabalho contendo o tutorial</p>
-      <div class="row">
-        <form class="col s12" id="new-document-form">
+      <form id="new-document-form">
           <div class="row">
             <input id="new-document-user-id" type="hidden" value="{{userId}}">
-            <div class="input-field col s{{personNameGridColumns}}">
+            <div class="input-field col s12 l{{personNameGridColumns}}">
               <input id="new-document-person-name" type="text" class="validate" value="{{personName}}" disabled={{userDetailsDisabled}} required name="name" maxlength="200">
               <label for="new-document-person-name" class="{{personNameLabelClass}}">Nome</label>
               <i class="material-icons postfix-inside tooltipped {{#unless userDetailsDisabled}}invisible{{/unless}} fade-up" data-tooltip="Para editar, marque &quot;Outro usuário&quot;" data-position="top">info_outline</i>
             </div>
-            <div class="input-field col s{{personEmailGridColumns}}">
+            <div class="input-field col s12 l{{personEmailGridColumns}}">
               <input id="new-document-person-email" type="email" class="validate" value="{{personEmail}}" disabled={{userDetailsDisabled}} required name="email" maxlength="200">
               <label for="new-document-person-email" class="{{personEmailLabelClass}}">Email</label>
               <i class="material-icons postfix-inside tooltipped {{#unless userDetailsDisabled}}invisible{{/unless}} fade-up" data-tooltip="Para editar, marque &quot;Outro usuário&quot;" data-position="top">info_outline</i>
             </div>
             {{#if currentUser}}
-            <div class="col s3">
+            <div class="col s12 l3">
               <input type="checkbox" id="new-document-other-user" checked="{{otherUsersChecked}}">
               <label for="new-document-other-user">Outro usuário</label>
             </div>
@@ -33,7 +32,7 @@
           </div>
 
           <div class="row">
-            <div class="input-field col s5">
+            <div class="input-field col s6 l5">
               <select id="new-document-year" class="validate" required name="year">
                 <option value="" disabled selected>Ano</option>
                 {{#each yearsAvailable}}
@@ -42,7 +41,7 @@
               </select>
               <label for="new-document-year">Quando cursou CG?</label>
             </div>
-            <div class="input-field col s3">
+            <div class="input-field col s6 l3">
               <select id="new-document-semester" class="validate" required name="semester">
                 <option value="" disabled selected>Semestre</option>
                 <option value="01">1</option>
@@ -52,7 +51,7 @@
           </div>
 
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <select id="new-document-os" class="validate" required name="os">
                 <option value="" disabled selected>Em que sistema foi testado</option>
                 <option value="Windows">Windows</option>
@@ -62,7 +61,7 @@
               <label>Sistema operacional</label>
             </div>
 
-            <div class="input-field col s6">
+            <div class="input-field col s12 l6">
               <select id="new-document-env" class="validate" required name="env">
                 <option value="" disabled selected>Em que ambiente foi testado</option>
                 <option value="CodeBlocks">CodeBlocks</option>
@@ -79,13 +78,12 @@
             <div class="input-field col s12">
               <i class="material-icons prefix">web</i>
               <input id="content-url" type="url" maxlength="200" required>
-              <label for="content-url">URL do vídeo/arquivo compactado</label>
+              <label for="content-url">URL do vídeo/arquivo</label>
             </div>
           </div>
 
           <button id="new-document-submit-button" class="invisible"></button>
         </form>
-      </div>
     </div>
     <div class="modal-footer">
       <label for="new-document-submit-button" class="modal-action waves-effect waves-light indigo btn">
