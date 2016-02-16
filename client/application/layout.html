@@ -5,7 +5,7 @@
 <template name="layout">
   <header id="main-header">
     <nav role="navigation" class="indigo">
-      <div class="nav-wapper">
+      <div class="nav-wrapper">
         <!-- Logo -->
         <a class="svg-container" href="/">
           <object id="logo-svg" type="image/svg+xml" data="/img/tutoriais-opengl-logo.svg">Tutoriais OpenGL</object>
@@ -29,6 +29,11 @@
 
         <!-- Menu for small screens -->
         <ul class="side-nav" id="mobile-menu">
+          <li>
+            <a class="svg-container" href="/">
+              <object id="logo-thin" type="image/svg+xml" data="/img/tutoriais-opengl-logo-thin.svg">Tutoriais OpenGL</object>
+            </a>
+          </li>
           <li><a href="about.html">Sobre</a></li>
           <li class="mobile-login-item valign-wrapper">
             {{#if currentUser}}

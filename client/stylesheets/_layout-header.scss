@@ -69,11 +69,29 @@ $profile-image-width: 40px;
   }
 }
 
+#logo-thin {
+  max-height: 100%;
+}
+
+.svg-container {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
 #main-header .button-collapse {
   left: 2%;
 }
 
-#main-header .svg-container {
+#main-header .nav-wrapper > .svg-container {
   @media only screen and (max-width: 998px) {
     position: absolute;
     left: 10%;
@@ -90,19 +108,5 @@ $profile-image-width: 40px;
     left: 18%;
     top: 50%;
     margin-top: -1.25em;
-  }
-}
-
-.svg-container {
-  position: relative;
-  display: inline-block;
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
   }
 }
