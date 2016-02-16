@@ -8,7 +8,7 @@
       </div>
       <form>
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
             <select id="filters-semester" class="filters" data-filter-type="semester" multiple>
               <option value="" disabled>Semestres</option>
               {{#each semestersAvailable}}
@@ -17,7 +17,7 @@
             </select>
             <label>Quando cursou CG:</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
             <select id="filters-os" class="filters" data-filter-type="os" multiple>
               <option value="" disabled>Sistemas</option>
               <option value="Windows" selected="{{filterChecked 'os' 'Windows'}}">Windows</option>
@@ -44,7 +44,7 @@
     </aside>
 
     {{#each documents}}
-    {{> document}}
+      {{> document}}
     {{/each}}
   </div>
 </template>

@@ -29,6 +29,19 @@ $filters-container-width: 26em;
   &:not(.active):hover {
     right: -$filters-container-width + 2em;
   }
+
+  @media only screen and (max-width: 410px) {
+    width: 90%;
+    right: -87%;
+
+    &.active {
+      right: 0;
+    }
+
+    &:not(.active):hover {
+      right: -85%;
+    }
+  }
 }
 
 .filters-heading {
