@@ -1,25 +1,33 @@
 
-var validateNewDocument;//,
-  // validateMultipleSelect,
-  // validateContent;
+var validateNewDocument,
+  resetForm;
+
+resetForm = function($form) {
+  var $name = $form.find('#new-document-person-name'),
+    $email = $form.find('#new-document-person-email'),
+    $userId =  $form.find('#new-document-user-id'),
+    name = $name.val(),
+    email = $email.val(),
+    userId = $userId.val();
+
+  $form[0].reset();
+
+  $name.val(name);
+  $email.val(email);
+  $userId.val(userId);
+
+  $form.find('input,select').removeClass('invalid').removeClass('touched');
+  $form.find('label,i.prefix').removeClass('active');
+  $name.next('label').addClass('active');
+  $email.next('label').addClass('active');
+}
 
 validateNewDocument = function(form, template) {
   const formElements = Array.from(form.elements),
-    // activeTabSelector = template.$('#new-document-content-tabs a.active').attr('href'),
-    // formMultipleSelects = template.$('select[multiple]').toArray();
-    // contentField = validateContent[activeTabSelector](template),
-
-    isFormValid = form.checkValidity();//,
-    // isMultipleSelectsValid = formMultipleSelects
-    //   .map(validateMultipleSelect)
-    //   .reduce((prev, curr) => prev && curr, true),
-    // isContentFieldValid = contentField.success;
-
+    isFormValid = form.checkValidity();
 
   const validation = {
     success: isFormValid,
-      // &&  isMultipleSelectsValid
-      // && isContentFieldValid,
     values: {
       userId: template.$('#new-document-user-id').val().trim(),
       name: template.$('#new-document-person-name').val().trim(),
@@ -45,30 +53,6 @@ validateNewDocument = function(form, template) {
 
   return validation;
 };
-//
-// validateMultipleSelect = function(select) {
-//   var valid = select.value !== '';
-//   select.setCustomValidity(valid ? '' : 'Selecione pelo menos uma opção');
-//
-//   return valid;
-// };
-
-// validateContent = {
-//   '#tab-video-url': (template) => {
-//     var $urlEl = template.$('#video-url'),
-//       url = $urlEl.val().trim(),
-//       valid = !!url && $urlEl[0].checkValidity();
-//
-//     $urlEl[0].setCustomValidity(valid ? '' : 'Digite a URL, com seu devido formato');
-//     return {
-//       success: valid,
-//       videoUrl: url
-//     };
-//   },
-//   '#tab-video-upload': (template) => {},
-//   '#tab-file-url': (template) => {},
-//   '#tab-file-upload': (template) => {}
-// };
 
 Template.newDocumentModal.events({
   'submit form': function(e, template) {
@@ -98,8 +82,8 @@ Template.newDocumentModal.events({
 
 
     Meteor.call('insertDocument', document, function(error, result) {
-      $('#new-document-modal').closeModal();
-      e.target.reset();
+      template.$('#new-document-modal').closeModal();
+      resetForm(template.$(e.currentTarget));
     });
   },
 
@@ -141,18 +125,17 @@ Template.newDocumentModal.helpers({
 
 Template.newDocumentModal.rendered = function() {
   // materialize plugins
-  this.$('#new-document-button').leanModal({
+  var template = this;
+  template.$('#new-document-button').leanModal({
     ready: function() {
-      $('#new-document-modal .modal-content').scrollTop(0);
+      template.$('#new-document-modal .modal-content').scrollTop(0);
     },
     complete: function() {
-      var $form = $('#new-document-modal form');
-      $form[0].reset();
-      $form.find('input,select').removeClass('invalid touched');
-      $form.find('label,i.prefix').removeClass('active');
+      var $form = template.$('#new-document-modal form');
+      resetForm($form);
     }
   });
-  this.$('select').each(function() {
+  template.$('select').each(function() {
     var $selectWrapper,
       $selectDropdown,
       $selectOriginal = $(this);
@@ -164,8 +147,8 @@ Template.newDocumentModal.rendered = function() {
 
     $selectDropdown.on('focus', function() { this.classList.add('touched'); });
   });
-  this.$('ul.tabs').tabs();
-  this.$('.tooltipped').tooltip({ delay: 100 });
+  template.$('ul.tabs').tabs();
+  template.$('.tooltipped').tooltip({ delay: 100 });
 };
 
 Template.newDocumentModal.created = function() {
