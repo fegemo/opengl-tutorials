@@ -1,9 +1,13 @@
-$logo-height: 60px;
 $profile-image-width: 40px;
 
 
 #main {
   height: 100%;
+}
+
+#main-header {
+  position: relative;
+  z-index: 998; /* because of materialize side-nav overlay, which is 997 */
 }
 
 .profile-image,
@@ -55,11 +59,38 @@ $profile-image-width: 40px;
 }
 
 #logo-svg {
-  max-height: $logo-height;
+  max-width: 86%;
+  height: auto;
+  @media only screen and (max-width: 600px) {
+    max-width: 70%
+  }
+  @media only screen and (max-width: 510px) {
+    max-width: 86%
+  }
 }
 
-#main-header .brand-logo {
-  height: $logo-height;
+#main-header .button-collapse {
+  left: 2%;
+}
+
+#main-header .svg-container {
+  @media only screen and (max-width: 998px) {
+    position: absolute;
+    left: 10%;
+  }
+  @media only screen and (max-width: 510px) {
+    left: 13%;
+  }
+  @media only screen and (max-width: 420px) {
+    left: 15%;
+    top: 50%;
+    margin-top: -1.5em;
+  }
+  @media only screen and (max-width: 360px) {
+    left: 18%;
+    top: 50%;
+    margin-top: -1.25em;
+  }
 }
 
 .svg-container {

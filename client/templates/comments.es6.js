@@ -88,7 +88,7 @@ Template.comments.events({
 
 Template.comments.rendered = function() {
   this.$('.collapsible').collapsible();
-  this.$('.button-collapse').sideNav({
+  this.$('.close-comments-list').sideNav({
     edge: 'left',
     menuWidth: 300
   });

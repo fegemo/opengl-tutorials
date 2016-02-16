@@ -58,7 +58,7 @@ Template.document.events({
   },
   'click .comment-link': function(e, template) {
     Session.set('activeDocument', this);
-    $('.button-collapse').sideNav('show');
+    $('.close-comments-list').sideNav('show');
   }
 });
 
