@@ -29,7 +29,3 @@ Accounts.onCreateUser(function(options, user) {
 
   return user;
 });
-
-Meteor.publish('userData', function () {
-  return Meteor.users.find({}, {fields: {profile: 1}});
-});
