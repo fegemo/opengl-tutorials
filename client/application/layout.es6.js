@@ -7,7 +7,9 @@ Template.layout.rendered = function() {
     animTimingFunction: Vivus.EASE_OUT
   });
 
-  $('.button-collapse[data-activates="mobile-menu"]').sideNav();
+  $('.button-collapse[data-activates="mobile-menu"]').sideNav({
+    closeOnClick: true
+  });
 };
 
 Template.layout.events({
