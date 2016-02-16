@@ -12,10 +12,7 @@ $fade-in-duration: 200ms;
 }
 
 .fade-up {
-  transition-property: transform, opacity, visibility;
-  transition-duration: $fade-in-duration, $fade-in-duration, 0ms;
-  transition-timing-function: ease-out;
-  transition-delay: 0ms, 0ms, $fade-in-duration;
+  transition: transform $fade-in-duration ease-out, opacity $fade-in-duration ease-out, visibility 0ms ease-out $fade-in-duration;
 
   opacity: 1;
   transform: none;
