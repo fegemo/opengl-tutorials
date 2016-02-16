@@ -23,11 +23,11 @@
         <!-- Download or URL button -->
         {{#if file}}
           <dt class="download-link">
-            <a href="/dl/{{person.date}}/{{file}}">
+            <a href="/dl/{{person.date}}/{{file}}" target="_blank">
               <i class="material-icons tiny">file_download</i>
             </a>
           </dt>
-          <dd class="download-link"><a href="/dl/{{person.date}}//{{file}}">{{downloads}}</a></dd>
+          <dd class="download-link"><a href="/dl/{{person.date}}//{{file}}" target="_blank">{{downloads}}</a></dd>
         {{/if}}
         {{#if content}}
           <dt class="download-link">
