@@ -35,29 +35,26 @@ Template.document.events({
   },
   'click .download-link': function(e, template) {
     // saves a download count to the document
-    Documents.update(this._id, {
-      $inc: { downloads: 1 }
-    });
+    Meteor.call('countDownload', this._id, function() {});
   },
   'click .like-link': function(e, template) {
+    var amount = 0;
     template.userLiked.set(!template.userLiked.get());
 
     if (template.userLiked.get()) {
       // saves a like count to the document
-      Documents.update(this._id, {
-        $inc: { likes: 1 }
-      });
+      amount = 1;
       template.$(e.target).closest('.document-stats').find('.like-link i').eq(0)
           .text('favorite');
     } else {
       // removes a like
       // saves a like count to the document
-      Documents.update(this._id, {
-        $inc: { likes: -1 }
-      });
+      amount = -1;
       template.$(e.target).closest('.document-stats').find('.like-link i').eq(0)
           .text('favorite_outline');
     }
+
+    Meteor.call('countLike', this._id, amount, function() {});
   },
   'click .comment-link': function(e, template) {
     Session.set('activeDocument', this);

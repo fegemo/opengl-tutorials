@@ -97,9 +97,10 @@ Template.newDocumentModal.events({
     document.content = validation.values.content;
 
 
-    Documents.insert(document);
-    $('#new-document-modal').closeModal();
-    e.target.reset();
+    Meteor.call('insertDocument', document, function(error, result) {
+      $('#new-document-modal').closeModal();
+      e.target.reset();
+    });
   },
 
   // when the user checks/unchecks on the checkbox "other user"

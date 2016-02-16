@@ -72,14 +72,7 @@ Template.comments.events({
     }
 
     // Inserts the new comment into the comments array of the active document
-    Documents.update(activeDocument._id, {
-      $push: {
-        comments: {
-          $each: [newComment],
-          $position: 0
-        }
-      }
-    }, function(error, affectedRecords) {
+    Meteor.call('insertComment', activeDocument._id, newComment, function(error, result) {
       // resets the state of the form
       $submit.find('.preloader-wrapper').removeClass('active');
       $submit.removeAttr('disabled');
