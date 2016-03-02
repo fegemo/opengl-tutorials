@@ -122,6 +122,186 @@ Meteor.startup(function () {
           date: '2014/02'
         },
         comments: []
+      },
+      {
+        file: 'Fabrício Fraga - Ubuntu.docx',
+        os: ['Linux'],
+        env: ['Linha de comando'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Fabrício Fraga',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Saulo Antunes - Ubuntu.txt',
+        os: ['Linux'],
+        env: ['Linha de comando'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Saulo Antunes',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Tulio Mitre - Mint.docx',
+        os: ['Linux'],
+        env: ['Linha de comando'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Túlio Mitre',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Wendell Santos - Ubuntu Code Blocks.pdf',
+        os: ['Linux'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Wendell Pereira',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Ana Luiza - Mint Code Blocks.pdf',
+        os: ['Linux'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Ana Luiza',
+          date: '2015/02'
+        },
+        comments: []
+      },
+      {
+        file: 'Andre Luiz - Mint Code Blocks.pdf',
+        os: ['Linux'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'André Luiz',
+          date: '2015/02'
+        },
+        comments: []
+      },
+      {
+        content: 'https://www.youtube.com/watch?v=0vDd7CnCJAA',
+        os: ['Windows'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Renan Nascimento',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Amanda Barbosa - Falcon Cpp.pdf',
+        os: ['Windows'],
+        env: ['Falcon C++'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Amanda Barbosa',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Victor Balbo - Code Blocks.pptx',
+        os: ['Windows'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Victor Balbo',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Vinícius Silveira - Code Blocks.docx',
+        os: ['Windows'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Vinícius Silveira',
+          date: '2015/01'
+        },
+        comments: []
+      },
+      {
+        file: 'Ezequiel Polastrelli - Code Blocks.pdf',
+        os: ['Windows'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Ezequiel Plastrelli',
+          date: '2015/02'
+        },
+        comments: []
+      },
+      {
+        file: 'Henrique Sávio - Code Blocks.docx',
+        os: ['Windows'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Henrique Sávio',
+          date: '2015/02'
+        },
+        comments: []
+      },
+      {
+        file: 'Loraine - Code Blocks.docx',
+        os: ['Windows'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Loraine Duarte',
+          date: '2015/02'
+        },
+        comments: []
+      },
+      {
+        file: 'Pedro Brandão - Shell.docx',
+        os: ['Windows'],
+        env: ['Linha de comando'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Pedro Brandão',
+          date: '2015/02'
+        },
+        comments: []
+      },
+      {
+        file: 'Cassiano de Brito - Code Blocks.xps',
+        os: ['Windows'],
+        env: ['CodeBlocks'],
+        likes: 0,
+        downloads: 0,
+        person: {
+          name: 'Cassiano de Brito',
+          date: '2015/02'
+        },
+        comments: []
       }
     ];
 
